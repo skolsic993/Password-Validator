@@ -25,6 +25,16 @@ function isValidPassword2(password, username) {
   return true;
 }
 
-const result = isValidPassword2("somethingnew");
+function isValidPassword3(password, username) {
+  const tooShort = password.length < 8;
+  const hasSpace = password.indexOf(" ") !== -1;
+  const toSimilar = password.indexOf(username) !== -1;
+
+  if (toSimilar || hasSpace || tooShort) return false;
+
+  return true;
+}
+
+const result = isValidPassword3("somethingnew", "Something");
 
 console.log(result);
